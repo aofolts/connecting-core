@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import Header from './header'
-import Footer from './footer'
 import {Helmet} from 'react-helmet'
 import PropTypes from 'prop-types'
 import favicon from '../images/favicon.png'
@@ -41,10 +39,9 @@ class Layout extends Component {
           <meta name='keywords' content={keywords.join(',')}/>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
           <link rel='shortcut icon' type='image/png' href={favicon}/>
+          <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet"></link>
         </Helmet>
-        <Header menu={this.props.menu} />
-          {this.props.children}
-        <Footer />
+        {this.props.children}
       </div>
     )
   }
@@ -67,6 +64,8 @@ export function withLayout(Component) {
       data
     } = props
 
+    const {page} = data
+
     const {
       seo
     } = data.page
@@ -76,6 +75,10 @@ export function withLayout(Component) {
         ...seo,
         description: seo.description.description
       }
+    }
+
+    if (page.layout) {
+      page.layout = page.layout[0] 
     }
 
     return (

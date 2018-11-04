@@ -1,1 +1,34 @@
 @import (reference) 'global.less';
+
+////////////////////////////////////////////////////////
+// INTRO
+////////////////////////////////////////////////////////
+
+.introHeadline {
+  .fs(5rem);
+}
+
+.introContent {
+  @media @minLaptop {
+    .flex;
+  }
+}
+
+.introText {
+  .pr(@m);
+  flex: 1;
+}
+
+.introHeadshot {
+  width: 40rem;
+  flex: 1;
+
+  &:after {
+    .cnt; .abs; .wh; .bd(@bd solid @prime); .r(-@s); .t(@s);
+    .z(-1);
+  }
+
+  @media @maxTablet {
+    .w; .pb(100%); .mt(@m);
+  }
+}
