@@ -10,31 +10,3 @@ export const pageFieldsFragment = graphql`
     }
   }
 `
-
-export const seoFragment = graphql`
-  fragment seoFields on ContentfulSeo {
-    title
-    description {
-      description
-      childMarkdownRemark {
-        excerpt(pruneLength: 120)
-      }
-    }
-    keywords   
-  }
-`
-
-export const PageHeroFragment = graphql`
-  fragment pageFeaturedImage on ContentfulPage {
-    featuredImage {
-      ...heroImage
-    }
-  }
-`
-
-export const heroImageFragment = graphql`
-  fragment heroImage on ContentfulAsset {
-    title
-    description
-  }
-`

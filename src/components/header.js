@@ -40,9 +40,9 @@ const Menu = () => {
 }
 
 const Nav = () => {
-  return (
+  return ( 
     <nav className={css.nav}>
-      <div className={css.brandName}>Connecting to the Core</div>
+      <Link className={css.brandName} to='/'>Connecting to the Core</Link>
       <div className={css.mobileMenu}>
         <Menu/>
         <Button className={css.button} label='Connect' link='/#contact'/>

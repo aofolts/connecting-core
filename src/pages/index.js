@@ -7,6 +7,7 @@ import CoachingIcon from '../svg/icon-coaching'
 import ResearchIcon from '../svg/icon-research'
 import MediationIcon from '../svg/icon-mediation'
 import Testimonials from '../components/testimonials'
+import RecentArticlesSection from '../components/section-recent-articles';
 
 const Intro = ({
   headline,
@@ -83,7 +84,8 @@ class Index extends Component {
 
     const {
       page,
-      testimonials
+      testimonials,
+      articles
     } = data
 
     const {
@@ -102,6 +104,7 @@ class Index extends Component {
         />
         <ServicesSection services={services} />
         <Testimonials entries={testimonials.edges.map(entry => entry.node)}/>
+        <RecentArticlesSection entries={articles.edges.map(entry => entry.node)}/>
       </Fragment>
     )
   }
@@ -113,13 +116,22 @@ export const query = graphql`
   {
     page: contentfulPage(slug: {eq: "home"}) {
       ...pageInfo
-      ...pageFeaturedImage
+      featuredImage {
+        ...heroImage
+      }
       ...homePageLayout
     }
     testimonials: allContentfulTestimonial(limit: 3) {
       edges {
         node {
           ...testimonial
+        }
+      }
+    }
+    articles: allContentfulBlogPost(limit: 3) {
+      edges {
+        node {
+          ...articleCard
         }
       }
     }
@@ -132,9 +144,9 @@ export const homePageLayoutFragment = graphql`
       introHeadline
       introParagraph
       introHeadshot {
-        ...imageMeta
-        sizes: fluid(maxWidth: 1000) {
-          ...imageSizes
+        ...assetMeta
+        fluid(maxWidth: 1000) {
+          ...GatsbyContentfulFluid
         }
       }
       services {

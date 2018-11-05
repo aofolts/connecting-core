@@ -5,12 +5,13 @@ import Image from 'gatsby-image'
 const BackgroundImage = ({
   title,
   alt,
-  sizes,
-  className
+  className,
+  fluid,
+  fixed
 }) => {
   return (
     <Image 
-      {...{title,alt,sizes}}
+      {...{title,alt,fluid,fixed}}
       className={['mediaBackground',className].join(' ')}
       style={{position: 'absolute'}}
     />
@@ -19,8 +20,7 @@ const BackgroundImage = ({
 
 BackgroundImage.propTypes = {
   title: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  sizes: PropTypes.object.isRequired
+  alt: PropTypes.string.isRequired
 }
 
 export default BackgroundImage
