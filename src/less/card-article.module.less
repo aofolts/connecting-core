@@ -1,0 +1,36 @@
+@import (reference) 'global.less';
+
+.card {
+  border: .border.weight[thin] solid @darkGrey;
+  display: block;
+
+  &:hover {
+    .trf(scale(1.02));
+  }
+
+  & + .card {
+    @media @phone {
+      .mt(@m);
+    }
+  }
+}
+
+.content {
+  .pad(@s);
+}
+
+.category {
+  .fs(.secondaryParagraph[fontSize]); .c(@prime);
+}
+
+.title {
+  .fs(.card.headline[fontSize]);
+}
+
+.media {
+  .pb(66%); .of(hidden);
+}
+
+.excerpt {
+  .fs(.secondaryParagraph[fontSize]);
+}

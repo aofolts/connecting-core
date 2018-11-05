@@ -5,17 +5,22 @@ import css from '../less/card-article.module.less'
 import BackgroundImage from './image-background';
 
 const ArticleCard = ({
-  id,
   title,
   slug,
-  author,
   category,
-  featuredImage
+  featuredImage,
+  content
 }) => {
+  const excerpt = content.childMarkdownRemark.excerpt
   return (
     <Link to={`/articles/${slug}`} className={css.card}>
       <div className={css.media}>
         <BackgroundImage {...featuredImage}/>
+      </div>
+      <div className={css.content}>
+        <div className={css.category}>{category}</div>
+        <h3 className={css.title}>{title}</h3>
+        <p className={css.excerpt}>{excerpt}</p>
       </div>
     </Link>
   )
@@ -41,6 +46,11 @@ export const articleCardFragment = graphql`
     author {
       photo {
         ...smallFixedImage
+      }
+    }
+    content {
+      childMarkdownRemark {
+        excerpt(pruneLength: 120)
       }
     }
   }

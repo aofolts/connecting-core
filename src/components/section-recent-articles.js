@@ -8,7 +8,7 @@ const Articles = ({
   const cards = entries.map(entry => <ArticleCard key={entry.id} {...entry}/>)
 
   return (
-    <div className={css.articles}>
+    <div className={css.grid}>
       {cards}
     </div>
   )
