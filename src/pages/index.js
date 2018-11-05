@@ -1,8 +1,12 @@
-import React,{Component} from 'react'
-import {graphql} from 'gatsby'
+import React,{Component, Fragment} from 'react'
+import {graphql,Link} from 'gatsby'
 import {withLayout} from '../components/layout'
 import css from '../less/home.module.less'
 import BackgroundImage from '../components/image-background'
+import CoachingIcon from '../svg/icon-coaching'
+import ResearchIcon from '../svg/icon-research'
+import MediationIcon from '../svg/icon-mediation'
+import Testimonials from '../components/testimonials'
 
 const Intro = ({
   headline,
@@ -26,6 +30,50 @@ const Intro = ({
   )
 }
 
+const ServicesSection = ({
+  services
+}) => {
+  const serviceIcons = {
+    'life-coaching': CoachingIcon,
+    'market-research': ResearchIcon,
+    'mediation': MediationIcon
+  }
+
+  const cards = services.map(({
+    title,
+    content,
+    slug
+  }) => {
+    const Icon = () => {
+      const TagName = serviceIcons[slug] || ResearchIcon
+      return <TagName className={css.serviceCardIcon} alt={`${title} icon`} />
+    }
+    
+    return (
+      <div key={slug} className={css.serviceCard}>
+        <Icon/>
+        <div className={css.serviceCardInfo}>
+          <div className={css.serviceCardText}>
+            <h3>{title}</h3>
+            <p className='p2'>{content.childMarkdownRemark.excerpt}</p>
+          </div>
+          <Link className={css.serviceCardLink} to={`/${slug}`}>Learn More</Link>
+        </div>
+      </div>
+    )
+  })
+
+  return (
+    <section id='services'>
+      <div className={['mainWrap',css.servicesWrap].join(' ')}>
+        <div className={css.servicesGrid}>
+          {cards}
+        </div>
+      </div>   
+    </section>
+  )
+}
+
 class Index extends Component {
 
   render() {
@@ -34,21 +82,27 @@ class Index extends Component {
     } = this.props
 
     const {
-      page
+      page,
+      testimonials
     } = data
 
     const {
       introHeadline,
       introParagraph,
-      introHeadshot
+      introHeadshot,
+      services
     } = page.layout
 
     return (
-      <Intro 
-        headline={introHeadline} 
-        paragraph={introParagraph}
-        headshot={introHeadshot}
-      />
+      <Fragment>
+        <Intro
+          headline={introHeadline}
+          paragraph={introParagraph}
+          headshot={introHeadshot}
+        />
+        <ServicesSection services={services} />
+        <Testimonials entries={testimonials.edges.map(entry => entry.node)}/>
+      </Fragment>
     )
   }
 }
@@ -61,6 +115,13 @@ export const query = graphql`
       ...pageInfo
       ...pageFeaturedImage
       ...homePageLayout
+    }
+    testimonials: allContentfulTestimonial(limit: 3) {
+      edges {
+        node {
+          ...testimonial
+        }
+      }
     }
   }
 `
@@ -78,6 +139,11 @@ export const homePageLayoutFragment = graphql`
       }
       services {
         ...serviceInfo
+        content {
+          childMarkdownRemark {
+            excerpt(pruneLength: 160)
+          }
+        }
       }
     }
   }

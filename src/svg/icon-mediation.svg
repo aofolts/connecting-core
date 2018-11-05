@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="175px" height="175px" viewBox="0 0 175 175" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-mediation</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="57.6181217" cy="57.6181217" r="57.6181217"></circle>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-mediation">
+            <g id="Group-2-Copy" transform="translate(59.024387, 59.024387) rotate(45.000000) translate(-59.024387, -59.024387) translate(1.024387, 1.024387)" stroke-width="2" stroke="#5A7EFF">
+                <circle id="Oval-3" cx="57.6181217" cy="57.6181217" r="57.6181217"></circle>
+            </g>
+            <g id="Group-2" transform="translate(116.024387, 116.024387) rotate(135.000000) translate(-116.024387, -116.024387) translate(58.024387, 58.024387)">
+                <circle id="Oval-3" stroke="#5A7EFF" stroke-width="2" cx="57.6181217" cy="57.6181217" r="57.6181217"></circle>
+                <g id="Group">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g mask="url(#mask-2)" stroke="#5A7EFF" stroke-width="2">
+                        <g transform="translate(12.523624, -4.285613)">
+                            <path d="M15.2378343,94.1385252 L15.2378343,128.000715" id="Line-Copy-2"></path>
+                            <path d="M29.9042653,87.0716006 L29.9042653,128.000715" id="Line-Copy-3"></path>
+                            <path d="M45.6182985,86.0081783 L45.6182985,128.000715" id="Line-Copy-4"></path>
+                            <path d="M60.2847294,87.7759453 L60.2847294,128.000715" id="Line-Copy-5"></path>
+                            <path d="M74.9511604,94.1399063 L74.9511604,128.000715" id="Line-Copy-6"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -32,3 +32,45 @@
     .w; .pb(100%); .mt(@m);
   }
 }
+
+////////////////////////////////////////////////////////
+// SERVICES
+////////////////////////////////////////////////////////
+
+.servicesWrap {
+  &:before {
+    .cnt; .w; .h(.border.weight[thin]); .bg(@lightGrey); .dsp(block);
+    .abs; .t; .l;
+  }
+}
+
+.servicesGrid {
+  .dsp(grid); .gtc(repeat(auto-fit,minmax(30rem,1fr)));
+  .gg(var(--h));
+}
+
+.serviceCard {
+  .dsp(flex); .flxd(column);
+}
+
+.serviceCardIcon {
+  .mb(@s);
+}
+
+.serviceCardInfo {
+  .dsp(flex); .flxd(column); .jcsb; flex-grow: 1;
+}
+
+.serviceCardText {
+  flex-grow: 1;
+}
+
+.serviceCardLink {
+  .fs(.p2[fontSize]); .c(@prime); .fw(400);
+
+  &:hover {
+    &:after {
+      .cnt(' →');
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import (reference) 'global.less';
+
+body {
+  --navHeight: 12.5rem;
+}
+
+.headerShim {
+  .h(var(--navHeight));
+}
+
+.header {
+  .pos(fixed); .t; .l; .w; .pad(0 var(--h)); .z(1000); .bg(white);
+  .bdb(.border.weight[thin] solid @lightGrey);
+}
+
+.nav {
+  .dsp(flex); .aic; .jcsb; .h(var(--navHeight));
+}
+
+.brandName {
+  .fw(.fontWeight[medium]); .fs(.h3[fontSize]);
+}
+
+.menuItem {
+  .ls(.letterSpacing[wide]);
+}
+
+@media @minLaptop {
+  .menu {
+    .ib;
+  }
+
+  .menuItem {
+    .ls(.02em); .ib;
+
+    &+.menuItem {
+      .ml(@ms);
+    }
+  }
+
+  .button {
+    .ml(@ms); .ib;
+  }
+}

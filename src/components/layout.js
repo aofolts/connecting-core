@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Helmet} from 'react-helmet'
 import PropTypes from 'prop-types'
 import favicon from '../images/favicon.png'
+import Header from './header'
 
 class Layout extends Component {
 
@@ -41,6 +42,7 @@ class Layout extends Component {
           <link rel='shortcut icon' type='image/png' href={favicon}/>
           <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet"></link>
         </Helmet>
+        <Header/>
         {this.props.children}
       </div>
     )

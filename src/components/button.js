@@ -11,10 +11,12 @@ const buttonTypeClasses = {
 const Button = ({
   label,
   link,
-  type
+  type,
+  className
 }) => {
   const buttonClass = [
-    buttonTypeClasses[type]
+    buttonTypeClasses[type],
+    className
   ].join(' ')
 
   const {
@@ -50,5 +52,6 @@ Button.defaultProps = {
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['primary','primaryLight'])
+  type: PropTypes.oneOf(['primary','primaryLight']),
+  className: PropTypes.string
 }

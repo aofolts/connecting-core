@@ -3,7 +3,7 @@ import {graphql} from 'gatsby'
 export const imageMetaFragment = graphql`
   fragment imageMeta on ContentfulAsset {
     title
-    description
+    alt: description
   }
 `
 
@@ -14,5 +14,7 @@ export const imageSizesFragment = graphql`
     srcSet
     srcSetWebp
     sizes
+    src
+    srcWebp
   }
 `

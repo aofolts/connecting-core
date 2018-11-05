@@ -1,0 +1,55 @@
+@import (reference) 'global.less';
+
+.section {
+  .bg(linear-gradient(-45deg,darken(@prime,10%),@prime));
+}
+
+.testimonial {
+  .c(white); .ta(center);
+}
+
+.inactiveTestimonial {
+  .hide;
+}
+
+.quote {
+  .ap(none);
+}
+
+.shortQuote,.longQuote {
+  .fs(@h2); .lh(@lineHeight);
+}
+
+.authorMeta {
+  .mt(@m);
+  .fs(.secondaryParagraph[fontSize]);
+}
+
+.authorCompany {
+  .fw(300); .fst(italic);
+}
+
+.readMore {
+  .bdb(.2em solid fade(white,10%)); .cur(pointer);
+
+  &:hover {
+    .bdbc(fade(white,20%));
+  }
+}
+
+.nav {
+  .mt(@m); .ta(center); 
+}
+
+.navItem {
+  .wh(@ms); .br(1000px); .ib;
+  border: .border.weight[thin] solid fade(white,20%);
+
+  & + .navItem {
+    .ml(@s);
+  }
+}
+
+.activeNavItem {
+  .bg(fade(white,20%));
+}

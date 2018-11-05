@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { withLayout } from '../components/layout';
+import {graphql} from 'gatsby'
 
 class SingleService extends Component {
   render() {

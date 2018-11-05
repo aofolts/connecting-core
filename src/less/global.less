@@ -1,31 +1,115 @@
 @import '../../node_modules/yetti/global.less';
 
 ////////////////////////////////////////////////////////
+// BORDER
+////////////////////////////////////////////////////////
+
+.border() {
+  .weight() {
+    thin: 2px
+  }
+}
+
+////////////////////////////////////////////////////////
 // COLORS
 ////////////////////////////////////////////////////////
 
 @prime: #5c82fe;
+@lightGrey: #f7f7f7;
 
 ////////////////////////////////////////////////////////
 // HEADINGS
 ////////////////////////////////////////////////////////
 
+// Move to yetti
+
 .heading() {
   fontSize: 6.5rem;
-  font-family: 'Playfair Display',serif;
+  fontFamily: 'Playfair Display',serif;
+  lineHeight: 1.2em;
 }
 
 h1 {
   .c(@prime);
   .fs(.heading[fontSize]);
-  font-family: .heading[font-family];
-} 
+  .ff(.heading[fontFamily]);
+  .lh(.heading[lineHeight]);
+}
+
+.h3() {
+  fontSize: 2.8rem;
+}
+
+////////////////////////////////////////////////////////
+// PARAGRAPH
+////////////////////////////////////////////////////////
+
+// Move to yetti: how to store p2?
+
+@textLink: {
+  .bdb(.border.weight[thin] solid fade(@prime,20%));
+};
+
+.paragraph() {
+  fontSize: 2.4rem;
+}
+
+.secondaryParagraph() {
+  fontSize: .paragraph[fontSize] * .85;
+}
+
+.p2() {
+  fontSize: .paragraph[fontSize] * .85;
+}
+
+.p2 {
+  .fs(.paragraph[fontSize] * .85);
+}
 
 ////////////////////////////////////////////////////////
 // SIZES
 ////////////////////////////////////////////////////////
 
 @main: 100rem;
+
+////////////////////////////////////////////////////////
+// TYPE
+////////////////////////////////////////////////////////
+
+@font-face {
+  .ff('avenir');
+  .fw(300);
+  src: url('../fonts/avenir-book.ttf');
+}
+
+@font-face {
+  .ff('avenir');
+  .fw(400);
+  src: url('../fonts/avenir-roman.ttf');
+}
+
+@font-face {
+  .ff('avenir');
+  .fw(500);
+  src: url('../fonts/avenir-medium.ttf');
+}
+
+@fontFamily: 'avenir',sans-serif;
+@fontWeight: 300;
+@color: #3e3f43;
+@lineHeight: 1.5em;
+
+// Move to yetti
+.fontWeight() {
+  light: 300;
+  regular: 400;
+  medium: 500;
+}
+
+// Move to yetti
+.letterSpacing() {
+  wide: .02em;
+}
 
 ////////////////////////////////////////////////////////
 // WRAPS

@@ -20,8 +20,7 @@ const BackgroundImage = ({
 BackgroundImage.propTypes = {
   title: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-  sizes: PropTypes.isRequired
+  sizes: PropTypes.object.isRequired
 }
 
 export default BackgroundImage
