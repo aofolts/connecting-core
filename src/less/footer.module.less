@@ -1,6 +1,90 @@
 @import (reference) 'global.less';
 
 ////////////////////////////////////////////////////////
+// SOCIAL
+////////////////////////////////////////////////////////
+
+.socialSection {
+  .pad(var(--v) var(--h)); .ta(center);
+  .topDivider;
+}
+
+.socialIcons {
+  .mar(0 auto);
+}
+
+.socialLink {
+  .h(@l);
+
+  & + .socialLink {
+    .ml(@s);
+  }
+}
+
+.socialIcon {
+  .h;
+}
+
+////////////////////////////////////////////////////////
 // FOOTER (ftr)
 ////////////////////////////////////////////////////////
 
+.contactSection {
+  background: linear-gradient(-45deg,@red,@yellow);
+}
+
+.wrap {
+  .wrap(@width: @main);
+}
+
+.postcard {
+  background: white;
+  border: .border.weight[thin] solid @darkGrey;
+  padding: var(--h);
+  display: flex;
+
+  @media @maxTablet {
+    .flxd(column-reverse);
+  }
+}
+
+.text,.form {
+  flex: 1;
+}
+
+.form {
+  @media @minLaptop {
+    .mr(@m);
+  }
+
+  @media @maxTablet {
+    .mt(@m);
+  }
+}
+
+input,textarea {
+  @weight: .border.weight[thin];
+  border: 0px solid @darkGrey;
+  border-bottom-width: @weight;
+  background: none;
+  font-size: .paragraph[font-size];
+  padding: .5em;
+  .w;
+}
+
+.field {
+  .mb(@ms);
+}
+
+label {
+  .hide;
+}
+
+.stamp {
+  .bd(.border.weight[thin] solid @darkGrey);
+  .ml(auto); .block; .mb(@m);
+
+  @media @maxTablet {
+    .hide;
+  }
+}

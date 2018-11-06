@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="100px" viewBox="0 0 80 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #E3B94A;">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-stamp</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-stamp" fill="#3E3F43">
+            <path d="M40,47.9497173 L60,64.7317099 L60,1.59872116e-14 L80,1.59872116e-14 L80,81.5137025 L109.320194,106.116267 L96.4644422,121.437156 L70.9166349,100 L60,100 L60,90.8398557 L40,74.057863 L40,100 L20,100 L20,57.2758704 L-30,15.3208889 L-17.1442478,0 L20,31.1677246 L20,1.59872116e-14 L40,1.59872116e-14 L40,47.9497173 Z M40,47.9497173 L20,31.1677246 L20,57.2758704 L40,74.057863 L40,47.9497173 Z M80,81.5137025 L60,64.7317099 L60,90.8398557 L70.9166349,100 L80,100 L80,81.5137025 L80,81.5137025 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

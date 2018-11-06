@@ -2,8 +2,15 @@
 
 @button: {
   .br(1000px); .pad(.5em 1.25em);
+  .fs(.paragraph[font-size]);
+  font-weight: .paragraph[font-weight];
+  .ls(.letterSpacing[wide]);
 }
 
 .primaryButton {
-  @button(); .bg(@prime); .c(white); .ls(.letterSpacing[wide]);
+  @button(); .bg(@prime); .c(white); 
+}
+
+.primaryAlternateButton {
+  @button(); .bg(@yellow); .c(white); 
 }

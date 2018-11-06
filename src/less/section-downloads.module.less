@@ -1,0 +1,25 @@
+@import (reference) 'global.less';
+
+.section {
+  .ta(center); .topDivider;
+}
+
+.download {
+  border: .border.weight[thin] solid @darkGrey; 
+  padding: @s;
+  margin: @s / 2;
+  display: inline-block;
+  line-height: 1em;
+
+  &:hover {
+    .bg(@prime); .c(white);
+  }
+}
+
+.headline {
+  .heading(@type: section);
+}
+
+.subHeadline {
+  .subHeading;
+}

@@ -3,6 +3,7 @@ import {Helmet} from 'react-helmet'
 import PropTypes from 'prop-types'
 import favicon from '../images/favicon.png'
 import Header from './header'
+import Footer from './footer'
 
 class Layout extends Component {
 
@@ -44,6 +45,7 @@ class Layout extends Component {
         </Helmet>
         <Header/>
         {this.props.children}
+        <Footer/>
       </div>
     )
   }

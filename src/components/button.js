@@ -3,40 +3,47 @@ import css from '../less/buttons.module.less'
 import PropTypes from 'prop-types'
 import {Link} from 'gatsby'
 
-const buttonTypeClasses = {
+const buttonThemeClasses = {
   primary: css.primaryButton,
-  primaryLight: css.primaryLightButton
+  primaryAlternate: css.primaryAlternateButton
 }
 
 const Button = ({
   label,
   link,
   type,
+  theme,
   className
 }) => {
   const buttonClass = [
-    buttonTypeClasses[type],
+    buttonThemeClasses[theme],
     className
   ].join(' ')
 
-  const {
-    page,
-    url
-  } = link
-
-  if (page) {
-    return (
-      <Link className={buttonClass} to={page}>
-        {label}
-      </Link>
-    )
+  if (link) {
+    const {
+      page,
+      url
+    } = link
+  
+    if (page) {
+      return (
+        <Link className={buttonClass} to={page}>
+          {label}
+        </Link>
+      )
+    }
+    else if (url) {
+      return (
+        <a className={buttonClass} href={url} target='__blank'>
+          {label}
+        </a>
+      )
+    }
   }
-  else if (url) {
-    return (
-      <a className={buttonClass} href={url} target='__blank'>
-        {label}
-      </a>
-    )
+  
+  if (type === 'submit') {
+    return <button className={buttonClass} type={type}>{label}</button>
   }
 
   return (
@@ -47,11 +54,11 @@ const Button = ({
 export default Button
 
 Button.defaultProps = {
-  type: 'primary'
+  theme: 'primary'
 }
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['primary','primaryLight']),
+  theme: PropTypes.oneOf(['primary','primaryAlternate']),
   className: PropTypes.string
 }

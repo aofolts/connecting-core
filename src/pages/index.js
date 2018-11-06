@@ -7,7 +7,9 @@ import CoachingIcon from '../svg/icon-coaching'
 import ResearchIcon from '../svg/icon-research'
 import MediationIcon from '../svg/icon-mediation'
 import Testimonials from '../components/testimonials'
-import RecentArticlesSection from '../components/section-recent-articles';
+import RecentArticlesSection from '../components/section-recent-articles'
+import DownloadsSection from '../components/section-downloads'
+import AboutSection from '../components/section-about';
 
 const Intro = ({
   headline,
@@ -92,7 +94,11 @@ class Index extends Component {
       introHeadline,
       introParagraph,
       introHeadshot,
-      services
+      services,
+      downloads,
+      aboutHeadline,
+      aboutParagraph,
+      aboutPhoto
     } = page.layout
 
     return (
@@ -105,6 +111,12 @@ class Index extends Component {
         <ServicesSection services={services} />
         <Testimonials entries={testimonials.edges.map(entry => entry.node)}/>
         <RecentArticlesSection entries={articles.edges.map(entry => entry.node)}/>
+        <DownloadsSection assets={downloads}/>
+        <AboutSection 
+          headline={aboutHeadline} 
+          paragraph={aboutParagraph}
+          photo={aboutPhoto}
+        />
       </Fragment>
     )
   }
@@ -156,7 +168,9 @@ export const homePageLayoutFragment = graphql`
             excerpt(pruneLength: 160)
           }
         }
-      }
+      } 
+      ...homeDownloadsSection
+      ...homeAboutSection
     }
   }
 `

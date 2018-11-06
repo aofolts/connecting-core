@@ -24,9 +24,32 @@
 // COLORS
 ////////////////////////////////////////////////////////
 
-@prime: #5c82fe;
+@lightBlue: #5c82fe;
+@darkBlue: #3d57aa;
+@red: #b65b48;
+@yellow: #E2B854;
+
+.colors() {
+  lightBlue: #5c82fe;
+  darkBlue: #3d57aa;
+  red: #b65b48;
+  yellow: #5c82fe;
+}
+
+@prime: @lightBlue;
 @lightGrey: #f7f7f7;
 @darkGrey: #333;
+
+////////////////////////////////////////////////////////
+// DIVIDERS
+////////////////////////////////////////////////////////
+
+.topDivider() {
+  &:before {
+    .cnt; .w; .h(.border.weight[thin]); .bg(@lightGrey); .dsp(block);
+    .abs; .t; .l;
+  }
+}
 
 ////////////////////////////////////////////////////////
 // GRID
@@ -45,23 +68,54 @@
   }
 };
 
+.halvesGrid() {
+  .dsp(grid); .gtc(repeat(auto-fit,minmax(40rem,1fr)));
+  .gg(var(--h));
+
+  @media @maxTablet {
+    .dsp(block);
+  }
+
+  @supports not (display: grid) {
+    .dsp(flex);
+  }
+};
+
 ////////////////////////////////////////////////////////
 // HEADINGS
 ////////////////////////////////////////////////////////
 
 // Move to yetti
 
-.heading() {
+.primaryHeading() {
+  font-size: 5rem;
+  font-family: 'Playfair Display',serif;
+  line-height: 1.2em;
+  color: @prime;
+}
+
+.heading(
+  @type
+) {
   fontSize: 6.5rem;
   fontFamily: 'Playfair Display',serif;
   lineHeight: 1.2em;
+
+  & when (@type = section) {
+    margin-bottom: @m;
+  }
+}
+
+.subHeading() {
+  color: @prime;
+  font-weight: 500;
 }
 
 h1 {
   .c(@prime);
-  .fs(.heading[fontSize]);
-  .ff(.heading[fontFamily]);
-  .lh(.heading[lineHeight]);
+  .fs(6.5rem);
+  font-family: 'Playfair Display',serif;
+  line-height: 1.2em;
 }
 
 .h3() {
@@ -88,6 +142,8 @@ h4 {
 
 .paragraph() {
   fontSize: 2.4rem;
+  font-size: 2.4rem;
+  font-weight: 300;
 }
 
 .secondaryParagraph() {

@@ -1,0 +1,34 @@
+@import (reference) 'global.less';
+
+.wrap {
+  .topDivider;
+}
+
+.headline {
+  .primaryHeading();
+}
+
+.content {
+  @media @minLaptop {
+    .flex;
+  }
+}
+
+.text {
+  .pr(@m);
+  flex: 1;
+}
+
+.photo {
+  width: 40rem;
+  flex: 1;
+
+  &:after {
+    .cnt; .abs; .wh; .bd(@bd solid @prime); .r(-@s); .t(@s);
+    .z(-1);
+  }
+
+  @media @maxTablet {
+    .w; .pb(100%); .mt(@m);
+  }
+}
