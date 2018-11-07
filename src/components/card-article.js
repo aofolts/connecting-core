@@ -13,7 +13,7 @@ const ArticleCard = ({
 }) => {
   const excerpt = content.childMarkdownRemark.excerpt
   return (
-    <Link to={`/articles/${slug}`} className={css.card}>
+    <Link to={`/blog/${slug}`} className={css.card}>
       <div className={css.media}>
         <BackgroundImage {...featuredImage}/>
       </div>

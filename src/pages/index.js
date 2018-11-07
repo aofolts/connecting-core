@@ -60,7 +60,7 @@ const ServicesSection = ({
             <h3>{title}</h3>
             <p className='p2'>{content.childMarkdownRemark.excerpt}</p>
           </div>
-          <Link className={css.serviceCardLink} to={`/${slug}`}>Learn More</Link>
+          <Link className={css.serviceCardLink} to={`/services/${slug}`}>Learn More</Link>
         </div>
       </div>
     )
