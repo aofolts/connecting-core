@@ -25,7 +25,7 @@ const Intro = ({
             <p>{paragraph}</p>
           </div>
           <div className={css.introHeadshot}>
-            <BackgroundImage {...headshot} />
+            <BackgroundImage {...headshot} alt={headshot.title} />
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ class Index extends Component {
       aboutHeadline,
       aboutParagraph,
       aboutPhoto
-    } = page.layout
+    } = page.layout[0]
 
     return (
       <Fragment>

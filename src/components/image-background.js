@@ -19,7 +19,7 @@ const BackgroundImage = ({
 }
 
 BackgroundImage.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   alt: PropTypes.string.isRequired
 }
 

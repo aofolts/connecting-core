@@ -82,10 +82,6 @@ export function withLayout(Component) {
       }
     }
 
-    if (page.layout) {
-      page.layout = page.layout[0] 
-    }
-
     return (
       <Layout {...meta}>
         <Component {...props}/>
