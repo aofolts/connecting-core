@@ -131,7 +131,7 @@ export const query = graphql`
       featuredImage {
         ...heroImage
       }
-      ...homePageLayout
+      ...homePageLayoutFragment
     }
     testimonials: allContentfulTestimonial(limit: 3) {
       edges {
@@ -151,7 +151,7 @@ export const query = graphql`
 `
 
 export const homePageLayoutFragment = graphql`
-  fragment homePageLayout on ContentfulPage {
+  fragment homePageLayoutFragment on ContentfulPage {
     layout {
       introHeadline
       introParagraph
@@ -174,3 +174,4 @@ export const homePageLayoutFragment = graphql`
     }
   }
 `
+

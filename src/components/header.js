@@ -3,7 +3,9 @@ import css from '../less/header.module.less'
 import {Link} from 'gatsby'
 import Button from './button'
 
-const Menu = () => {
+const Menu = ({
+  closeMobileMenu
+}) => {
   const items = [
     {
       label: 'About',
@@ -24,7 +26,7 @@ const Menu = () => {
     link
   }) => {
     return (
-      <li key={label} className={css.menuItem}>
+      <li key={label} className={css.menuItem} onClick={closeMobileMenu}>
         <Link to={link} className={css.menuItemTitle}>
           {label}
         </Link>
@@ -39,25 +41,87 @@ const Menu = () => {
   )
 }
 
-const Nav = () => {
+const Toggle = ({
+  openMobileMenu,
+  mobileMenuIsOpen,
+  closeMobileMenu
+}) => {
+  const classes = [
+    css.toggle,
+    mobileMenuIsOpen ? css.openToggle : null
+  ].join(' ')
+
+  const handleClick = () => {
+    if (mobileMenuIsOpen) closeMobileMenu()
+    else openMobileMenu()
+  }
+
+  return (
+    <div className={classes} onClick={handleClick}></div>
+  )
+}
+
+const Nav = ({
+  openMobileMenu,
+  closeMobileMenu,
+  mobileMenuIsOpen
+}) => {
+  const mobileMenuClasses = [
+    css.mobileMenu,
+    mobileMenuIsOpen ? css.activeMobileMenu : null
+  ].join(' ')
+
   return ( 
     <nav className={css.nav}>
       <Link className={css.brandName} to='/'>Connecting to the Core</Link>
-      <div className={css.mobileMenu}>
-        <Menu/>
-        <Button className={css.button} label='Connect' link='/#contact'/>
+      <div className={mobileMenuClasses}>
+        <div className={css.mobileMenuWrap}>
+          <Menu {...{closeMobileMenu}}/>
+          <a className={css.button} href='#contact'>Connect</a>
+        </div>
       </div>
+      <Toggle {...{openMobileMenu,mobileMenuIsOpen,closeMobileMenu}}/>
     </nav>
   )
 }
 
 class Header extends Component {
+
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      mobileMenuIsOpen: false
+    }
+  }
+
+  openMobileMenu = () => {
+    this.setState({
+      mobileMenuIsOpen: true
+    })
+  }
+
+  closeMobileMenu = () => {
+    this.setState({
+      mobileMenuIsOpen: false
+    })
+  }
+
   render() {
+    const {
+      openMobileMenu,
+      closeMobileMenu
+    } = this
+
+    const {
+      mobileMenuIsOpen
+    } = this.state
+
     return (
       <Fragment>
         <div className={css.headerShim}></div>
         <header className={css.header}>
-          <Nav/>
+          <Nav {...{openMobileMenu,closeMobileMenu,mobileMenuIsOpen}}/>
         </header>
       </Fragment>
     )

@@ -25,7 +25,7 @@ const Link = ({
     )
   }
   else if (url) {
-    if (url[0] === '/') {
+    if (url[0] === '/' && url[1] !== '#') {
       return (
         <GatsbyLink 
           className={className}

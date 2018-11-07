@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import favicon from '../images/favicon.png'
 import Header from './header'
 import Footer from './footer'
+import {Link} from 'gatsby'
 
 class Layout extends Component {
 
@@ -31,6 +32,12 @@ class Layout extends Component {
       keywords,
       description
     } = seo
+
+    console.log(this.props)
+
+    return (
+      <Link to='/'>layout: home</Link>
+    )
 
     return (
       <div id='layout'>
@@ -84,6 +91,12 @@ export function withLayout(Component) {
     if (page.layout) {
       page.layout = page.layout[0] 
     }
+    
+    console.log(page.layout)
+
+    return (
+      <Link to='/'>withLayout: home</Link>
+    )
 
     return (
       <Layout {...meta}>

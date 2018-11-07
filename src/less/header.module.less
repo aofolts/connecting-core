@@ -1,4 +1,5 @@
 @import (reference) 'global.less';
+@import 'header-mobile.module.less';
 
 body {
   --navHeight: 12.5rem;
@@ -25,7 +26,7 @@ body {
   .ls(.letterSpacing[wide]);
 }
 
-@media @minLaptop {
+@media @minDesktop {
   .menu {
     .ib;
   }
@@ -41,4 +42,90 @@ body {
   .button {
     .ml(@ms); .ib;
   }
+}
+
+////////////////////////////////////////////////////////
+// MOBILE MENU
+////////////////////////////////////////////////////////
+
+.toggle {
+  .hide;
+}
+
+@media @maxLaptop {
+
+  .nav {
+    .h(9rem);
+  }
+
+  @toggleWeight: 3px;
+
+  .toggle {
+    .block; .wh(@ms); .cur(pointer);
+    .trn(height .2s ease-in-out);
+
+    &:before,&:after {
+      .trn(all .2s ease-in-out);
+    }
+
+    &:before {
+      .cnt; .w; .h(@toggleWeight); .bg(@darkGrey);
+      .abs; .t(calc(50% ~'-' 6px)); .l(50%); .trf(translate(-50%,-50%));
+    }
+
+    &:after {
+      .cnt; .w; .h(@toggleWeight); .bg(@darkGrey);
+      .abs; .t(calc(50% ~'+' 6px)); .l(50%); .trf(translate(-50%,-50%));
+    }
+  }
+
+  .openToggle {
+
+    &:after {
+      .t(50%); .trf(translate(-50%,-50%) rotate(45deg));
+    }
+
+    &:before {
+      .t(50%); .trf(translate(-50%,-50%) rotate(-45deg));
+    }
+  }
+
+  @keyframes latterUp {
+    0% {clip-path: polygon(0 100%,100% 100%,100% 100%,0 100%);}
+    50% {clip-path: polygon(0 0,100% 100%,100% 100%,0 100%);}
+    100% {clip-path: polygon(0 0,100% 0,100% 100%,0 100%);}
+  }
+
+  .mobileMenu {
+    .ta(center);
+    .wh; .l; .t; .pos(fixed); .gradient.primary();
+    .dsp(flex); .aic; .jc(center); .trn(clip-path .2s ease-in-out);
+    // Move to yetti: .cp = clip-path
+    clip-path: polygon(0 100%,100% 100%,100% 100%,0 100%);
+  }
+
+  .activeMobileMenu {
+    .an(latterUp .5s ease-in-out);
+    clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+  }
+
+  .mobileMenuItem() {
+    .fs(@h2); .lh(2em); .c(white); .fw(500);
+
+    &:hover {
+      &:before {
+        .cnt; .h(.5em); .l; .w; .abs; .t(calc(50%)); .bg(fade(@black,10%));
+        .z(-1);
+      }
+    }
+  }
+
+  .menuItem {
+    .mobileMenuItem;
+  }
+
+  .button {
+    .mobileMenuItem;
+  }
+
 }

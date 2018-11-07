@@ -11,10 +11,10 @@ const SocialSection = () => {
     <section id='social' className={css.socialSection}>
       <div className={css.socialIcons}>
         <a className={css.socialLink} href='https://www.facebook.com/114728032555443' target='__blank' title='Facebook'>
-          <img className={css.socialIcon} src={facebookIcon}/>
+          <img className={css.socialIcon} src={facebookIcon} alt='Facebook'/>
         </a>
         <a className={css.socialLink} href='https://twitter.com/ConnectingCMW' target='__blank' title='Twitter'>
-          <img className={css.socialIcon} src={twitterIcon}/>
+          <img className={css.socialIcon} src={twitterIcon} alt='Twitter'/>
         </a>
       </div>
     </section>
@@ -23,7 +23,7 @@ const SocialSection = () => {
 
 const Form = () => {
   return (
-    <form className={css.form} name='contact' method='POST' netlify>
+    <form className={css.form} name='contact' method='POST' netlify='true'>
       <div className={css.field}>
         <label htmlFor='contactFormName'>Name</label>
         <input type='text' id='contactFormName' placeholder='Name' required/>
