@@ -33,12 +33,6 @@ class Layout extends Component {
       description
     } = seo
 
-    console.log(this.props)
-
-    return (
-      <Link to='/'>layout: home</Link>
-    )
-
     return (
       <div id='layout'>
         <Helmet>
@@ -91,12 +85,6 @@ export function withLayout(Component) {
     if (page.layout) {
       page.layout = page.layout[0] 
     }
-    
-    console.log(page.layout)
-
-    return (
-      <Link to='/'>withLayout: home</Link>
-    )
 
     return (
       <Layout {...meta}>
