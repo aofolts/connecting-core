@@ -26,15 +26,15 @@ const Form = () => {
     <form className={css.form} name='contact' method='POST' netlify='true'>
       <div className={css.field}>
         <label htmlFor='contactFormName'>Name</label>
-        <input type='text' id='contactFormName' placeholder='Name' required/>
+        <input className={css.input} type='text' id='contactFormName' placeholder='Name' required/>
       </div>
       <div className={css.field}>
         <label htmlFor='contactFormEmail'>Email</label>
-        <input type='email' id='contactFormEmail' placeholder='Email' required/>
+        <input className={css.input} type='email' id='contactFormEmail' placeholder='Email' required/>
       </div>
       <div className={css.field}>
         <label htmlFor='contactFormMessage'>Message</label>
-        <textarea id='contactFormMessage' placeholder='How can we help?' rows='3' name='message' required/>
+        <textarea className={css.textarea} id='contactFormMessage' placeholder='How can we help?' rows='3' name='message' required/>
       </div>
       <Button type='submit' label='Send it' theme='primaryAlternate'/>
     </form>
