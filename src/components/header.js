@@ -1,7 +1,6 @@
 import React, {Component,Fragment} from 'react'
 import css from '../less/header.module.less'
 import {Link} from 'gatsby'
-import Button from './button'
 
 const Menu = ({
   closeMobileMenu

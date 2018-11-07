@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import favicon from '../images/favicon.png'
 import Header from './header'
 import Footer from './footer'
-import {Link} from 'gatsby'
 
 class Layout extends Component {
 
@@ -68,8 +67,6 @@ export function withLayout(Component) {
     const {
       data
     } = props
-
-    const {page} = data
 
     const {
       seo

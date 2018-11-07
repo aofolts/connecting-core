@@ -1,53 +1,91 @@
-// const path = require('path')
+const path = require('path')
 
-// const templates = {
-//   page: path.resolve('./src/templates/page.js'),
-//   home: path.resolve('./src/templates/page-home.js')
-// }
+const templates = {
+  service: path.resolve('./src/templates/single-service.js'),
+  article: path.resolve('./src/templates/single-article.js')
+}
 
-// exports.createPages = ({graphql,actions}) => {
-//   const {
-//     createPage
-//   } = actions
+exports.createPages = ({graphql,actions}) => {
+  const {
+    createPage
+  } = actions
 
-//   const createPages = new Promise((resolve,reject) => {
-//     resolve(
-//       graphql(
-//         `
-//           {
-//             allContentfulPage {
-//               edges {
-//                 node {
-//                   slug
-//                 }
-//               }
-//             }
-//           }
-//         `
-//       ).then(result => {
-//         if (result.errors) {
-//           console.log(result.errors)
-//           reject(result.errors)
-//         }
+  const createServicePages = new Promise((resolve,reject) => {
+    resolve(
+      graphql(
+        `
+          {
+            entries: allContentfulService {
+              edges {
+                node {
+                  slug
+                }
+              }
+            }
+          }
+        `
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
 
-//         const posts = result.data.allContentfulPage.edges
+        const entries = result.data.entries.edges
         
-//         posts.forEach(post => {
-//           let slug = post.node.slug
+        entries.forEach(entry => {
+          let slug = entry.node.slug
 
-//           createPage({
-//             path: slug === `home` ? '/' : `/${slug}/`,
-//             component: templates[slug] || templates.page,
-//             context: {
-//               slug
-//             }
-//           })
-//         })
-//       })
-//     )
-//   })
+          createPage({
+            path: `/services/${slug}`,
+            component: templates.service,
+            context: {
+              slug
+            }
+          })
+        })
+      })
+    )
+  })
 
-//   return Promise.all([
-//     createPages
-//   ])
-// }
+  const createArticlePages = new Promise((resolve,reject) => {
+    resolve(
+      graphql(
+        `
+          {
+            entries: allContentfulBlogPost {
+              edges {
+                node {
+                  slug
+                }
+              }
+            }
+          }
+        `
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
+
+        const entries = result.data.entries.edges
+        
+        entries.forEach(entry => {
+          let slug = entry.node.slug
+
+          createPage({
+            path: `/blog/${slug}`,
+            component: templates.article,
+            context: {
+              slug
+            }
+          })
+        })
+      })
+    )
+  })
+
+  return Promise.all([
+    createServicePages,
+    createArticlePages
+  ])
+}

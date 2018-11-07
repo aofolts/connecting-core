@@ -1,0 +1,21 @@
+@import (reference) 'global.less';
+
+.meta {
+  .dsp(flex); .mb(@m);
+}
+
+.authorPhoto {
+  .wh(15rem); .br(1000px); .of(hidden);
+
+  @media @minTablet {
+    .mr(@m);
+  }
+}
+
+.authorCompany {
+  .c(@prime);
+}
+
+.publishDate {
+  .fs(.secondaryParagraph[font-size]);
+}

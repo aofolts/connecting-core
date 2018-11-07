@@ -1,2 +1,18 @@
 @import (reference) 'global.less';
 
+.section {
+  .h(55rem); .mh(80vh); .pad(var(--v) var(--h));
+  .dsp(flex); .aic; .jc(center);
+}
+
+.title {
+  .c(white); .ff(@fontFamily); .fs(6.5rem);
+
+  @media @phone {
+    .fs(@h2);
+  }
+}
+
+.background {
+  .flt(brightness(.65));
+}

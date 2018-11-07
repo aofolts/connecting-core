@@ -7,6 +7,18 @@
   .ls(.letterSpacing[wide]);
 }
 
+// Move to yetti
+.button() {
+  .br(1000px); .pad(.5em 1.25em);
+  .fs(.paragraph[font-size]);
+  font-weight: .paragraph[font-weight];
+  .ls(.letterSpacing[wide]);
+
+  .primary() {
+    @button(); .bg(@prime); .c(white); 
+  }
+}
+
 .primaryButton {
   @button(); .bg(@prime); .c(white); 
 }
