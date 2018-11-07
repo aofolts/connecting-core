@@ -16,7 +16,7 @@ const Menu = ({
     },
     {
       label: 'Blog',
-      link: '/#blog'
+      link: '/#recentArticles'
     }
   ]
 
