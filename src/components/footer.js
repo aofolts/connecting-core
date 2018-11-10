@@ -22,19 +22,29 @@ const SocialSection = () => {
 }
 
 const Form = () => {
+  const formProps = {
+    className: css.form,
+    name: 'contact',
+    method: 'POST', 
+    "data-netlify": true,
+    action: '/success',
+    "netlify-honeypot": "bot-field"
+  }
+
   return (
-    <form className={css.form} name='contact' method='POST' netlify='true'>
+    <form {...formProps}>
+      <label className={css.honeypot}>Don’t fill this out if you're human: <input name="bot-field" /></label>
       <div className={css.field}>
-        <label htmlFor='contactFormName'>Name</label>
-        <input className={css.input} type='text' id='contactFormName' placeholder='Name' required/>
+        <label htmlFor='name'>Name</label>
+        <input className={css.input} type='text' id='name' name='name' placeholder='Name' required/>
       </div>
       <div className={css.field}>
-        <label htmlFor='contactFormEmail'>Email</label>
-        <input className={css.input} type='email' id='contactFormEmail' placeholder='Email' required/>
+        <label htmlFor='email'>Email</label>
+        <input className={css.input} type='email' id='email' name='email' placeholder='Email' required/>
       </div>
       <div className={css.field}>
-        <label htmlFor='contactFormMessage'>Message</label>
-        <textarea className={css.textarea} id='contactFormMessage' placeholder='How can we help?' rows='3' name='message' required/>
+        <label htmlFor='message'>Message</label>
+        <textarea className={css.textarea} id='message' name='message' placeholder='How can we help?' rows='3' name='message' required/>
       </div>
       <Button type='submit' label='Send it' theme='primaryAlternate'/>
     </form>
