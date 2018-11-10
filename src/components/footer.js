@@ -28,23 +28,23 @@ const Form = () => {
     method: 'POST', 
     "data-netlify": true,
     action: '/success',
-    "netlify-honeypot": "bot-field"
+    "data-netlify-honeypot": "bot-field"
   }
 
   return (
-    <form {...formProps}>
-      <label className={css.honeypot}>Don’t fill this out if you're human: <input name="bot-field" /></label>
+    <form className={css.form} name="contactForm" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="bot-field" />
       <div className={css.field}>
-        <label htmlFor='name'>Name</label>
-        <input className={css.input} type='text' id='name' name='name' placeholder='Name' required/>
+        <label htmlFor="name">Name</label>
+        <input className={css.input}type="text" name="name" id="name" placeholder='Name' />
       </div>
       <div className={css.field}>
-        <label htmlFor='email'>Email</label>
-        <input className={css.input} type='email' id='email' name='email' placeholder='Email' required/>
+        <label htmlFor="email">Email</label>
+        <input className={css.input} type="text" name="email" id="email" placeholder='Email' />
       </div>
       <div className={css.field}>
-        <label htmlFor='message'>Message</label>
-        <textarea className={css.textarea} id='message' name='message' placeholder='How can we help?' rows='3' name='message' required/>
+        <label htmlFor="message">Message</label>
+        <textarea className={css.textarea}name="message" id="message" rows="3"  placeholder='Message'></textarea>
       </div>
       <Button type='submit' label='Send it' theme='primaryAlternate'/>
     </form>
