@@ -32,7 +32,7 @@ const Form = () => {
   }
 
   return (
-    <form className={css.form} name="contactForm" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+    <form className={css.form} name="contactForm" method="post" data-netlify="true" data-netlify-honeypot="bot-field" success="/success">
       <input type="hidden" name="bot-field" />
       <div className={css.field}>
         <label htmlFor="name">Name</label>
