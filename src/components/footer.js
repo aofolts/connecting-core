@@ -24,16 +24,17 @@ const SocialSection = () => {
 const Form = () => {
   const formProps = {
     className: css.form,
-    name: 'contact',
+    name: 'contactForm',
     method: 'POST', 
     "data-netlify": "true",
     action: '/success',
     "data-netlify-honeypot": "bot-field",
-    "data-netlify-recaptcha": "true"
+    "data-netlify-recaptcha": "true",
+    success: "/success"
   }
 
   return (
-    <form className={css.form} name="contactForm" method="post" data-netlify="true" data-netlify-honeypot="bot-field" success="/success">
+    <form {...formProps}>
       <input type="hidden" name="bot-field" />
       <div className={css.field}>
         <label htmlFor="name">Name</label>
