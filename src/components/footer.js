@@ -48,7 +48,7 @@ const Form = () => {
         <label htmlFor="message">Message</label>
         <textarea className={css.textarea}name="message" id="message" rows="3"  placeholder='Message'></textarea>
       </div>
-      <div class="g-recaptcha" data-sitekey="6Ldz5IUUAAAAAHOqFMjN6aVFOSyJuxEy13b9Alzp"></div>
+      <div class={["g-recaptcha",css.button].join(' ')} data-sitekey="6Ldz5IUUAAAAAHOqFMjN6aVFOSyJuxEy13b9Alzp"></div>
       <Button type='submit' label='Send it' theme='primaryAlternate'/>
     </form>
   )
