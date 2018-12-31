@@ -26,9 +26,10 @@ const Form = () => {
     className: css.form,
     name: 'contact',
     method: 'POST', 
-    "data-netlify": true,
+    "data-netlify": "true",
     action: '/success',
-    "data-netlify-honeypot": "bot-field"
+    "data-netlify-honeypot": "bot-field",
+    "data-netlify-recaptcha": "true"
   }
 
   return (
@@ -46,6 +47,7 @@ const Form = () => {
         <label htmlFor="message">Message</label>
         <textarea className={css.textarea}name="message" id="message" rows="3"  placeholder='Message'></textarea>
       </div>
+      <div class="g-recaptcha" data-sitekey="6Ldz5IUUAAAAAHOqFMjN6aVFOSyJuxEy13b9Alzp"></div>
       <Button type='submit' label='Send it' theme='primaryAlternate'/>
     </form>
   )
